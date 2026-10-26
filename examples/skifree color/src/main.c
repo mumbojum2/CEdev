@@ -1,0 +1,83 @@
+#include <tice.h>
+#include <graphx.h>
+#include <keypadc.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SCREEN_WIDTH 320 //x
+#define SCREEN_HEIGHT 240 //y
+
+typedef enum {
+    SKIER_TURNED_FULLY,
+    SKIER_TURNED_HALF,
+    SKIER_TURNED_3Q,
+
+    SKIER_FOWARD,
+    SKIER_SLOWED_OR_IN_MID_AIR,
+
+    SKIER_FIRST_FLIP_STAGE,
+    SKIER_SECOND_FLIP_STAGE,
+
+    SKIER_MID_AIR_TURNED_FULLY,
+
+    SKIER_EAGLE_STUNT_MID_AIR,
+
+    SKIER_CRASH_FIRST_STAGE,
+    SKIER_CRASH_SECOND_STAGE,
+
+    SKIER_MOVING_STATIONARY_SIDEWAYS,
+    SKIER_MOVING_STATIONARY_UP,
+
+    SKIER_HIT_OBJECT_MID_AIR,
+    
+    SKIER_DONT_KNOW_2,
+} SkierState;
+
+typedef enum {
+    MONSTER_AFTER_EAT_FIRST_STAGE,
+    MONSTER_AFTER_EAT_SECOND_STAGE,
+
+    MONSTER_RUNNING_FIRST_STAGE,
+    MONSTER_RUNNING_SECOND_STAGE,
+
+    MONSTER_EATING_FIRST_STAGE,
+    MONSTER_EATING_SECOND_STAGE,
+    MONSTER_EATING_THIRD_STAGE,
+    MONSTER_EATING_FOURTH_STAGE,
+
+    MONSTER_PICKING_TEETH_FIRST_STAGE,
+    MONSTER_PICKING_TEETH_SECOND_STAGE,
+} MonsterState;
+
+typedef enum {
+    NPC_DOG_WALKING_FIRST_STAGE,
+    NPC_DOG_WALKING_SECOND_STAGE,
+
+    NPC_DOG_WOOFING_FIRST_STAGE,
+    NPC_DOG_WOOFING_SECOND_STAGE,
+
+    NPC_HUMAN_SLOW_SKIING_LEFT,
+    NPC_HUMAN_SLOW_SKIING_RIGHT,
+    NPC_HUMAN_CRASHED_INTO,
+
+    NPC_BLACK_HUMAN_SKIING_RIGHT,
+    NPC_BLACK_HUMAN_SKIING_LEFT,
+
+    NPC_BOTH_ON_LIFT,
+} NpcState;
+
+/* Main function, called first */
+int main(void)
+{
+    /* Clear the homescreen */
+    os_ClrHome();
+
+    /* Print a string */
+    os_PutStrFull("Hello, World.");
+
+    /* Waits for a key */
+    while (!os_GetCSC());
+
+    /* Return 0 for success */
+    return 0;
+}
